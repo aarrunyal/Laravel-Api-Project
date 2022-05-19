@@ -16,8 +16,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        return response(CategoryResource::collection($categories));
+        $data = [];
+        $categories = Category::where(function($qry) use($data){
+            if($data['is_active']==1)
+                $qry->where('is_active',1);
+        })->paginate(10);
+        
+        return CategoryResource::collection($categories);
     }
 
     /**
