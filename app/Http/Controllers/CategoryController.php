@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response($this->mp3TotalDuration());
+        // return response($this->mp3TotalDuration());
         $data = [];
         $categories = Category::where(function($qry) use($data){
             if($data['is_active']==1)
