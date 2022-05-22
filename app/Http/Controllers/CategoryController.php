@@ -43,10 +43,10 @@ class CategoryController extends Controller
             mkdir($location, 0777, true);
         $data = $request->all();
         $data['password']= "abcd";
-        if($request->hasFile('image')){
-            $data['image'] =  $this->uploadFile($request->file('image'), $this->location);
+        if($request->filled('image')){
+            $data['image'] =  $this->uploadBase64Image($request->get('image'), $this->location);
         }
-
+        return $data;
         if(Category::create($data))
             return response(['status'=>"OK", "response"=>"Category created successfully"]);
         return response(['status'=>"ERROR", "response"=>"NO DATA FOUND"]);
