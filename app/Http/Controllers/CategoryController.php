@@ -47,6 +47,7 @@ class CategoryController extends Controller
         if($request->hasFile('image')){
             $data['image'] =  $this->uploadFile($request->file('image'), $this->location);
         }
+    
 
         if(Category::create($data))
             return response(['status'=>"OK", "response"=>"Category created successfully"]);

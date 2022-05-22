@@ -18,6 +18,7 @@ class CategoryResource extends JsonResource
             "title"=>$this->title,
             "description"=>$this->description,
             "is_active"=>$this->is_active,
+            "image_path"=>$this->image_path,
             "id"=>$this->id
         ];
         return $resource;
