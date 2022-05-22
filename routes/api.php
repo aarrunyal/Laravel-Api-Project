@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post("login", [LoginController::class, 'loginUser']);
 
-Route::group(["middleware"=>"auth:sanctum", "prefix"=>"xyz"], function($router){
+Route::group(["middleware"=>"auth:sanctum", ], function($router){
     $router->get('logout', [LoginController::class, 'logout']);
     
     $router->apiResource("category", CategoryController::class);

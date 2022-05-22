@@ -11,6 +11,6 @@ class Category extends Model
 
 
     public $fillable=[
-        "title", 'description', "is_active"
+        "title", 'description', "is_active", "image"
     ];
 }
