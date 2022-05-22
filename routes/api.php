@@ -32,13 +32,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-// Route::get('users', [UserController::class, "index"]);
-// Route::post('user', [UserController::class, "create"]);
-// Route::put('user/{id}/update', [UserController::class, "update"]);
-// Route::delete('user/{id}/delete', [UserController::class, "delete"]);
-// Route::get('user/{id}', [UserController::class, "show"]);
-
-
-
-// Route::apiResource("category", CategoryController::class);
