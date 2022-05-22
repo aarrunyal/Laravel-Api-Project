@@ -5,6 +5,7 @@ namespace App\Services\Traits;
 use Carbon\Carbon;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 trait ManageStorage{
 
@@ -42,6 +43,17 @@ trait ManageStorage{
              return     unlink($filePath);
             }
             return true;
+      }
+
+
+      public function mp3TotalDuration(){
+            
+            // return storage_path("app/test.mp3");
+           $media =  FFMpeg::fromDisk('local')->open("test.mp3");
+            $durationInSeconds = $media->getDurationInSeconds(); // returns an int
+            $durationInMiliseconds = $media->getDurationInMiliseconds(); // returns a float
+            return [$durationInMiliseconds, $durationInSeconds];
+
       }
 
 }

@@ -21,6 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        return response($this->mp3TotalDuration());
         $data = [];
         $categories = Category::where(function($qry) use($data){
             if($data['is_active']==1)
@@ -46,7 +47,7 @@ class CategoryController extends Controller
         if($request->filled('image')){
             $data['image'] =  $this->uploadBase64Image($request->get('image'), $this->location);
         }
-        return $data;
+
         if(Category::create($data))
             return response(['status'=>"OK", "response"=>"Category created successfully"]);
         return response(['status'=>"ERROR", "response"=>"NO DATA FOUND"]);
