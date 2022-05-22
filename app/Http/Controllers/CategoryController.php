@@ -24,7 +24,7 @@ class CategoryController extends Controller
         // return response($this->mp3TotalDuration());
         $data = [];
         $categories = Category::where(function($qry) use($data){
-            if($data['is_active']==1)
+            if(isset($data['is_active']) && $data['is_active']==1)
                 $qry->where('is_active',1);
         })->paginate(10);
         
