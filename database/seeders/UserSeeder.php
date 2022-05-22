@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             "first_name"=>"Xyz",
             "middle_name"=>"Xyz",
             "last_name"=>"Xyz",
-            "email"=>"Xyz@gmail.com",
+            "email"=>"xyz@gmail.com",
             "password"=>bcrypt(12345)
         ]);
     }
